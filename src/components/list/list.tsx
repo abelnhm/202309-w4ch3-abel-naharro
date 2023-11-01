@@ -3,21 +3,13 @@ import { Character } from '../../model/characters';
 import { Card } from '../card/card';
 import { ApiRepo } from '../../services/api.repo';
 
-// type Props = {
-//   info: Character;
-// };
-
 export function List() {
   const [characters, setCharacters] = useState<Character[]>([]);
   const repo = useMemo(() => new ApiRepo(), []);
 
   const loadCharacters = useCallback(async () => {
-    try {
-      const loadedCharacters = await repo.getCharacters();
-      setCharacters(loadedCharacters);
-    } catch (error) {
-      console.log((error as Error).message);
-    }
+    const loadedCharacters: Character = await repo.getCharacters();
+    setCharacters(loadedCharacters);
   }, [repo]);
 
   useEffect(() => {
@@ -26,11 +18,13 @@ export function List() {
 
   return (
     <>
-      <ul className="characters-list row list-unstyled">
-        {characters.map((item) => (
-          <Card info={item}></Card>
-        ))}
-      </ul>
+      {characters.length > 0 && (
+        <ul className="characters-list row list-unstyled">
+          {characters.map((item) => (
+            <Card info={item} key={item.id}></Card>
+          ))}
+        </ul>
+      )}
     </>
   );
 }
