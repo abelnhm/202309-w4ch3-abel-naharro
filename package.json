@@ -12,7 +12,8 @@
     "test:pro": "jest --watchAll --coverage --watchAll=false --passWithNoTests",
     "test:coverage": "jest --watchAll --coverage",
     "prepare": "husky install",
-    "sass": "sass scss:css -w --no-source-map"
+    "sass": "sass scss:css -w --no-source-map",
+    "api": "json-server --watch ./api/db.json"
   },
   "dependencies": {
     "react": "^18.2.0",

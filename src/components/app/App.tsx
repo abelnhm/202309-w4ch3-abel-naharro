@@ -1,12 +1,13 @@
-import { Header } from '../header/header';
+import { Comunication } from '../comunication/comunication';
+import { List } from '../list/list';
 import './app.scss';
 
-const title = 'My page';
-
 function App() {
+  const quote = 'Una frase que dice alguien';
   return (
     <>
-      <Header title={title}></Header>
+      <List></List>
+      <Comunication quote={quote}></Comunication>
     </>
   );
 }
