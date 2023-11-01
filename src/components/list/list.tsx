@@ -9,7 +9,7 @@ export function List() {
 
   const loadCharacters = useCallback(async () => {
     const loadedCharacters: Character = await repo.getCharacters();
-    setCharacters(loadedCharacters);
+    setCharacters([loadedCharacters]);
   }, [repo]);
 
   useEffect(() => {
