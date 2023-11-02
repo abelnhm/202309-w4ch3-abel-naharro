@@ -1,17 +1,17 @@
 import { screen, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import { Header } from './header';
+import { Comunication } from './comunication';
 
-describe('Given Header component', () => {
+describe('Given Comunication component', () => {
   describe('When we instantiate', () => {
-    const title = 'Title';
+    const title = 'test';
 
     beforeEach(() => {
-      render(<Header title={title}></Header>);
+      render(<Comunication quote={title}></Comunication>);
     });
 
     test('Then it should be in the document', () => {
-      const element = screen.getByRole('heading');
+      const element = screen.getByRole('img');
       expect(element).toBeInTheDocument();
     });
 
